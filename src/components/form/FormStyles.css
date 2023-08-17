@@ -1,0 +1,31 @@
+.form {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    height: 55px;
+}
+
+.form input {
+    border: none;
+    padding: 15px 4px 15px 20px;
+    color: #7f7f7f;
+    outline: none;
+    font-weight: bold;
+}
+
+.form button {
+    border: none;
+    background-color: transparent;
+    width: 50px;
+    border-top-right-radius: 5px;
+    border-top-botton-radius: 5px;
+    padding: 1em;
+}
+
+.form button i {
+    font-size: 1.2em;
+}
+
+.form button:hover i {
+    color: red;
+}

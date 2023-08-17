@@ -1,21 +1,9 @@
-// import { useState } from "react";
-import { useState } from "react";
-import { useFecth } from "../../hooks/useFecth";
+import { useContext } from "react";
+import { FetchContext } from "../../context/FetchContext";
 import { useSelectImage } from "../../hooks/useSelectImage";
-export const TodoComponent = () => {
-    const [valor, setValor] = useState("people");
-    const { data, fetchPhotos, fetchPhotosNext, fetchPhotosPrevious } =
-        useFecth();
-
-    const handleInputChange = (e) => {
-        setValor(e.target.value);
-    };
-
-    const handleSubmit = (e, valor) => {
-        e.preventDefault();
-        fetchPhotos(valor);
-    };
-
+import "./GalleryStyles.css";
+export const GalleryComponent = () => {
+    const { data } = useContext(FetchContext);
     const {
         selectedImage,
         hoveredImage,
@@ -24,36 +12,8 @@ export const TodoComponent = () => {
         handleMouseEnter,
         handleMouseLeave,
     } = useSelectImage();
-
     return (
         <>
-            <a href="https://www.pexels.com">Photos provided by Pexels</a>
-            <h1 htmlFor="buscar">¿Qué quieres buscar?</h1>
-            <form className="form" onSubmit={(e) => handleSubmit(e, valor)}>
-                <input
-                    type="text"
-                    name="buscar"
-                    placeholder="Busca una imagen"
-                    onChange={handleInputChange}
-                />
-                <button type="submit">
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
-            <div className="buttons-container">
-                <button
-                    className="button-previous"
-                    onClick={() => fetchPhotosPrevious(valor)}
-                >
-                    Anterior
-                </button>
-                <button
-                    className="button-next"
-                    onClick={() => fetchPhotosNext(valor)}
-                >
-                    Siguiente
-                </button>
-            </div>
             <div className="gallery">
                 {data.map((item, index) => (
                     <div
@@ -69,13 +29,6 @@ export const TodoComponent = () => {
                             src={item.src.medium}
                             alt={item.id}
                             className="gallery-image"
-                            // onLoad={(event) =>
-                            //     handleImageLoad(
-                            //         index,
-                            //         event.target.width,
-                            //         event.target.height
-                            //     )
-                            // }
                         />
                         {hoveredImage === item && (
                             <div className="image-overlay">

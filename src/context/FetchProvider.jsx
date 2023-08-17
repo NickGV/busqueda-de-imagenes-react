@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { FetchContext } from "./FetchContext";
 
-export const useFecth = () => {
+export const FetchProvider = ({ children }) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
 
@@ -57,11 +58,11 @@ export const useFecth = () => {
             });
     };
 
-    return {
-        data,
-        setData,
-        fetchPhotosNext,
-        fetchPhotosPrevious,
-        fetchPhotos,
-    };
+    return (
+        <FetchContext.Provider
+            value={{ data, fetchPhotos, fetchPhotosNext, fetchPhotosPrevious }}
+        >
+            {children}
+        </FetchContext.Provider>
+    );
 };

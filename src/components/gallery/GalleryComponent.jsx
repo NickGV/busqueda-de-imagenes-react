@@ -32,7 +32,7 @@ export const GalleryComponent = () => {
                         />
                         {hoveredImage === item && (
                             <div className="image-overlay">
-                                <h2>Click para ver mas</h2>
+                                <h2>Click to see more</h2>
                             </div>
                         )}
                     </div>
@@ -62,7 +62,7 @@ export const GalleryComponent = () => {
                                 className="original-link"
                             >
                                 <button className="download-button">
-                                    Para descargar
+                                    Download
                                 </button>
                             </a>
                         </div>

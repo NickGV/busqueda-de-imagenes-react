@@ -19,7 +19,7 @@ export const TodoComponent = () => {
     return (
         <>
             <a href="https://www.pexels.com">Photos provided by Pexels</a>
-            <h1 htmlFor="buscar">¿Qué quieres buscar?</h1>
+            <h1 htmlFor="buscar">What would you like to see?</h1>
             <form className="form" onSubmit={(e) => handleSubmit(e, valor)}>
                 <input
                     type="text"
@@ -36,13 +36,13 @@ export const TodoComponent = () => {
                     className="button-previous"
                     onClick={() => fetchPhotosPrevious(valor)}
                 >
-                    Anterior
+                    previous
                 </button>
                 <button
                     className="button-next"
                     onClick={() => fetchPhotosNext(valor)}
                 >
-                    Siguiente
+                    Next
                 </button>
             </div>
         </>
